@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UNIPERCENTO - La community studentesca dell'Università di Palermo. Trova appunti, eventi, e una rete di supporto per il tuo percorso universitario.">
+    <title>Home | UNIPERCENTO - Community Universitaria Palermo</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="page-loader">
+        <span class="loader"></span>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li class="has-dropdown">
+                <a href="#">Risorse <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Benvenuti in UNIPERCENTO</h1>
+                <p class="hero-subtitle">La community studentesca dell'Università di Palermo. Fatta da studenti, per gli studenti. Qui trovi appunti, eventi e supporto per il tuo percorso.</p>
+                <div class="hero-buttons">
+                    <a href="drive.html" class="btn btn-primary">Accedi al Drive <i class="fas fa-arrow-right"></i></a>
+                    <a href="community.html" class="btn btn-secondary">Unisciti alla Community</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section container">
+            <h2 class="section-title text-center">Le nostre risorse principali</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-folder-open"></i></div>
+                    <h3 class="feature-title">Drive Condiviso</h3>
+                    <p class="feature-description">Accedi a migliaia di appunti, riassunti ed esercizi caricati da altri studenti come te. Organizzato per dipartimento e corso di laurea.</p>
+                    <a href="drive.html" class="feature-link">Esplora il Drive <i class="fas fa-angle-right"></i></a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="feature-title">Eventi Formativi</h3>
+                    <p class="feature-description">Partecipa a workshop, seminari e incontri per sviluppare nuove competenze, dall'uso di software specifici all'orientamento al lavoro.</p>
+                    <a href="eventi.html" class="feature-link">Scopri gli eventi <i class="fas fa-angle-right"></i></a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="feature-title">Community Attiva</h3>
+                    <p class="feature-description">Entra nei nostri gruppi Telegram e social per fare domande, scambiare opinioni, trovare compagni di studio e restare aggiornato.</p>
+                    <a href="community.html" class="feature-link">Entra nel gruppo <i class="fas fa-angle-right"></i></a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                    <h3 class="feature-title">Strumenti Utili</h3>
+                    <p class="feature-description">Usa i nostri tool pensati per lo studio, come il Pomodoro Timer integrato per aiutarti a gestire il tempo e la concentrazione.</p>
+                    <a href="pomodoro.html" class="feature-link">Avvia il Timer <i class="fas fa-angle-right"></i></a>
+                </div>
+
+            </div>
+        </section>
+        
+        <section class="upcoming-events-section" style="background-color: var(--light-bg); padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2 class="section-title" style="margin: 0;">In primo piano</h2>
+                    <a href="eventi.html" class="btn btn-secondary">Vedi tutti gli eventi <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="events-grid data-grid active" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="event-card data-card" data-category="workshop" data-date="2025-05-20">
+                        <img src="https://via.placeholder.com/600x400?text=Workshop+Excel" alt="Workshop Excel" class="data-card-image">
+                        <div class="data-card-content">
+                            <div class="data-card-meta">
+                                <span class="date"><i class="far fa-calendar-alt"></i> 20 Maggio 2025, 15:00</span>
+                            </div>
+                            <span class="data-card-category workshop">Workshop</span>
+                            <h3 class="event-title data-card-title">Workshop: Excel avanzato per analisi dei dati</h3>
+                            <div class="data-card-meta event-footer">
+                                <div class="spots limited"><i class="fas fa-users"></i> Solo 15 posti rimasti</div>
+                                <button class="register-btn" onclick="window.location.href='eventi.html'">Iscriviti <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card data-card" data-category="seminar" data-date="2025-05-22">
+                        <img src="https://via.placeholder.com/600x400?text=Seminario+AI" alt="Seminario AI" class="data-card-image">
+                        <div class="data-card-content">
+                            <div class="data-card-meta">
+                                <span class="date"><i class="far fa-calendar-alt"></i> 22 Maggio 2025, 10:00</span>
+                            </div>
+                            <span class="data-card-category seminar">Seminario</span>
+                            <h3 class="event-title data-card-title">Intelligenza Artificiale: opportunità e sfide</h3>
+                            <div class="data-card-meta event-footer">
+                                <div class="spots"><i class="fas fa-users"></i> Posti disponibili</div>
+                                <button class="register-btn" onclick="window.location.href='eventi.html'">Iscriviti <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-about">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                    <div class="logo-text">
+                        <h3>UNIPERCENTO</h3>
+                        <p>Community Universitaria di Palermo</p>
+                    </div>
+                </div>
+                <p>La community creata dagli studenti, per gli studenti. Condividiamo appunti, organizziamo eventi e ci supportiamo a vicenda nel percorso universitario.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Unisciti al gruppo Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" aria-label="Seguici su LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Link Rapidi</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h3>Contatti</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Università degli Studi di Palermo, 90128 Palermo PA</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@unipercento.it">info@unipercento.it</a></p>
+                <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--light-gray);">Sito non ufficiale gestito dalla community studentesca.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 UNIPERCENTO. Tutti i diritti riservati. <a href="#">Privacy Policy</a> | <a href="#">Termini di utilizzo</a></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

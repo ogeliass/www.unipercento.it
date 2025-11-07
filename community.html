@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unisciti alla community di UNIPERCENTO. Entra nei nostri gruppi Telegram, seguici sui social e partecipa attivamente alla vita universitaria.">
+    <title>Community | UNIPERCENTO</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="page-loader">
+        <span class="loader"></span>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li class="has-dropdown">
+                <a href="#">Risorse <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                </ul>
+            </li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="main-content">
+        
+        <div class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <span>/</span>
+            <a href="community.html">Community</a>
+        </div>
+
+        <div class="container">
+            <div class="content text-center" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                
+                <h1 class="page-title">Entra nella Community</h1>
+                <p class="page-description">UNIPERCENTO è più di un sito: è una rete di studenti. Il cuore della nostra community batte sui gruppi Telegram, dove ci scambiamo idee, appunti e supporto in tempo reale.</p>
+                
+                <div class="community-cta-section">
+                    <h2 class="section-title">Canali Principali</h2>
+                    <p>Unisciti ai nostri canali principali per restare aggiornato e partecipare alle discussioni.</p>
+                    
+                    <div class="community-card-container">
+                        <div class="community-card">
+                            <i class="fab fa-telegram-plane community-icon"></i>
+                            <h3>Gruppo Telegram Principale</h3>
+                            <p>Il punto di ritrovo per tutti gli studenti. Qui puoi fare domande, trovare compagni di studio e restare aggiornato su tutte le novità dell'ateneo.</p>
+                            <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Entra nel Gruppo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        
+                        <div class="community-card">
+                            <i class="fab fa-instagram community-icon"></i>
+                            <h3>Pagina Instagram</h3>
+                            <p>Seguici su Instagram per aggiornamenti rapidi, storie, sondaggi e per dare un'occhiata dietro le quinte dei nostri eventi e della vita universitaria.</p>
+                            <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Seguici su IG <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="margin: 3rem 0;">
+
+                <div class="community-groups-section">
+                    <h2 class="section-title">Gruppi di Studio Dipartimentali</h2>
+                    <p>Abbiamo creato gruppi Telegram specifici per ogni dipartimento e per molti corsi di laurea. Trova il tuo e connettiti con i tuoi colleghi!</p>
+                    
+                    <div class="filter-controls" style="justify-content: center; margin-bottom: 2rem;">
+                         <div class="search-bar" style="max-width: 400px;">
+                            <input type="text" placeholder="Cerca il tuo corso o dipartimento..." id="groupSearchInput">
+                            <button type="submit" aria-label="Cerca"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="group-list">
+                        <div class="group-list-item" data-group-name="ingegneria informatica">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="group-name">Ingegneria Informatica</span>
+                            <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Unisciti</a>
+                        </div>
+                        <div class="group-list-item" data-group-name="economia e finanza">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="group-name">Economia e Finanza</span>
+                            <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Unisciti</a>
+                        </div>
+                        <div class="group-list-item" data-group-name="lettere moderne">
+                            <i class="fas fa-book-open"></i>
+                            <span class="group-name">Lettere Moderne</span>
+                            <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Unisciti</a>
+                        </div>
+                         <div class="group-list-item" data-group-name="giurisprudenza">
+                            <i class="fas fa-gavel"></i>
+                            <span class="group-name">Giurisprudenza</span>
+                            <a href="#" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Unisciti</a>
+                        </div>
+                        </div>
+                    <p id="noResultsMessage" style="display: none; margin-top: 1rem; color: var(--gray);">Nessun gruppo trovato per la tua ricerca.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-about">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                    <div class="logo-text">
+                        <h3>UNIPERCENTO</h3>
+                        <p>Community Universitaria di Palermo</p>
+                    </div>
+                </div>
+                <p>La community creata dagli studenti, per gli studenti. Condividiamo appunti, organizziamo eventi e ci supportiamo a vicenda nel percorso universitario.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Unisciti al gruppo Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" aria-label="Seguici su LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Link Rapidi</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h3>Contatti</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Università degli Studi di Palermo, 90128 Palermo PA</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@unipercento.it">info@unipercento.it</a></p>
+                <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--light-gray);">Sito non ufficiale gestito dalla community studentesca.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 UNIPERCENTO. Tutti i diritti riservati. <a href="#">Privacy Policy</a> | <a href="#">Termini di utilizzo</a></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

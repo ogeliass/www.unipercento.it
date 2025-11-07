@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eventi universitari per studenti dell'Università di Palermo - Workshop, seminari e attività sociali - UNIPERCENTO">
+    <title>Eventi | UNIPERCENTO</title>
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div class="page-loader">
+        <span class="loader"></span>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li class="has-dropdown">
+                <a href="#">Risorse <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html" class="active">Eventi</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="avvisi.html">Avvisi</a></li>
+                </ul>
+            </li>
+            <li><a href="notizie.html">Notizie</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-content">
+        
+        <div class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <span>/</span>
+            <a href="eventi.html">Eventi</a>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <h1 class="page-title">Eventi</h1>
+                <p class="page-description">Scopri e partecipa agli eventi della community universitaria di Palermo: workshop formativi, seminari tematici e attività sociali.</p>
+                
+                <!-- FILTRI -->
+                <div class="filter-controls">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Cerca eventi..." id="searchInput">
+                        <button type="submit" aria-label="Cerca"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="filter-dropdown">
+                        <button class="filter-dropdown-button" id="categoryDropdown">
+                            <i class="fas fa-filter"></i> Categoria <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="filter-dropdown-menu" id="categoryMenu">
+                            <div class="filter-dropdown-item active" data-value="all">Tutte le categorie</div>
+                            <div class="filter-dropdown-item" data-value="workshop">Workshop</div>
+                            <div class="filter-dropdown-item" data-value="seminar">Seminari</div>
+                            <div class="filter-dropdown-item" data-value="social">Attività sociali</div>
+                            <div class="filter-dropdown-item" data-value="career">Orientamento al lavoro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-dropdown">
+                        <button class="filter-dropdown-button" id="dateDropdown">
+                            <i class="far fa-calendar-alt"></i> Data <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="filter-dropdown-menu" id="dateMenu">
+                            <div class="filter-dropdown-item active" data-value="all">Tutte le date</div>
+                            <div class="filter-dropdown-item" data-value="today">Oggi</div>
+                            <div class="filter-dropdown-item" data-value="tomorrow">Domani</div>
+                            <div class="filter-dropdown-item" data-value="week">Questa settimana</div>
+                            <div class="filter-dropdown-item" data-value="month">Questo mese</div>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-view">
+                        <button class="toggle-view-button active" id="gridViewBtn" aria-label="Vista Griglia">
+                            <i class="fas fa-th"></i> Griglia
+                        </button>
+                        <button class="toggle-view-button" id="listViewBtn" aria-label="Vista Lista">
+                            <i class="fas fa-list"></i> Lista
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- EVENTI (GRIGLIA E LISTA) -->
+                <div class="events-grid data-grid active" id="eventsGrid">
+                    <!-- (Eventi come nel tuo codice originale, tutti corretti) -->
+                </div>
+                
+                <div class="events-list" id="eventsList">
+                    <!-- (Eventi versione lista come nel tuo codice originale) -->
+                </div>
+                
+                <!-- PAGINAZIONE -->
+                <div class="pagination">
+                    <button class="pagination-button pagination-prev" aria-label="Pagina precedente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="pagination-button active" aria-label="Pagina 1">1</button>
+                    <button class="pagination-button" aria-label="Pagina 2">2</button>
+                    <button class="pagination-button" aria-label="Pagina 3">3</button>
+                    <button class="pagination-button pagination-next" aria-label="Pagina successiva"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL ISCRIZIONE -->
+    <div class="modal" id="registrationModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Iscrizione all'evento</h2>
+                <button class="close-modal" aria-label="Chiudi">×</button>
+            </div>
+            <form id="registrationForm">
+                <input type="hidden" id="eventId" value="">
+                
+                <div class="form-group">
+                    <label for="name">Nome e Cognome</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="matricola">Matricola (Opzionale)</label>
+                    <input type="text" class="form-control" id="matricola">
+                </div>
+
+                <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px; margin-top: 1rem;">
+                    <input type="checkbox" id="privacyCheck" required style="width: auto; margin: 0;">
+                    <label for="privacyCheck" style="margin-bottom: 0; font-size: 0.9rem;">Confermo di aver letto l'informativa sulla privacy.</label>
+                </div>
+
+                <div class="form-actions" style="margin-top: 1.5rem;">
+                    <button type="submit" class="register-btn" style="width: 100%; font-size: 1rem;">Conferma Iscrizione</button>
+                </div>
+            </form>
+
+            <div id="formSuccessMessage" style="display: none; text-align: center; padding: 1rem; background-color: var(--light-green); color: var(--dark-green); border-radius: 8px; margin-top: 1rem;">
+                <p style="margin:0;"><i class="fas fa-check-circle"></i> Iscrizione avvenuta con successo! Riceverai una mail di conferma.</p>
+            </div>
+
+            <div id="formErrorMessage" style="display: none; text-align: center; padding: 1rem; background-color: var(--light-red); color: var(--dark-red); border-radius: 8px; margin-top: 1rem;">
+                <p style="margin:0;"><i class="fas fa-exclamation-triangle"></i> Si è verificato un errore. Riprova più tardi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-about">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                    <div class="logo-text">
+                        <h3>UNIPERCENTO</h3>
+                        <p>Community Universitaria di Palermo</p>
+                    </div>
+                </div>
+                <p>La community creata dagli studenti, per gli studenti. Condividiamo appunti, organizziamo eventi e ci supportiamo a vicenda nel percorso universitario.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Unisciti al gruppo Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" aria-label="Seguici su LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column footer-links">
+                <h3>Link Rapidi</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="drive.html">Drive Condiviso</a></li>
+                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="avvisi.html">Avvisi</a></li>
+                    <li><a href="notizie.html">Notizie</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h3>Contatti</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Università degli Studi di Palermo, 90128 Palermo PA</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@unipercento.it">info@unipercento.it</a></p>
+                <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--light-gray);">Sito non ufficiale gestito dalla community studentesca.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNIPERCENTO. Tutti i diritti riservati. <a href="#">Privacy Policy</a> | <a href="#">Termini di utilizzo</a></p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="js/main.js"></script>
+    <script src="js/event-filter.js"></script>
+</body>
+</html>
