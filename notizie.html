@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notizie universitarie aggiornate per studenti dell'Università di Palermo - UNIPERCENTO">
+    <title>Notizie Universitarie | UNIPERCENTO</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            transition: var(--transition);
+        }
+
+        .logo-container a:hover h1 {
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            margin-right: 5px;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border-radius: 50px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .search-bar:focus-within {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            outline: none;
+        }
+
+        .search-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-bar button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* News Container */
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .page-description {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .filter-tab {
+            padding: 0.7rem 1.5rem;
+            background: var(--light);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-family: var(--font-main);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .filter-tab:hover:not(.active) {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-category {
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-category.academic {
+            background: var(--primary);
+        }
+
+        .news-category.events {
+            background: var(--accent);
+        }
+
+        .news-category.deadlines {
+            background: var(--warning);
+        }
+
+        .news-category.bandi {
+            background: var(--success);
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            border-top: 1px solid var(--light-gray);
+            padding-top: 1rem;
+        }
+
+        .news-meta .date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+
+        .read-more i {
+            font-size: 0.8rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            min-height: 44px;
+        }
+
+        .pagination-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Loader */
+        .news-loader {
+            text-align: center;
+            padding: 2rem;
+            grid-column: 1 / -1;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .news-loader i {
+            margin-right: 0.5rem;
+        }
+
+        .no-news {
+            text-align: center;
+            padding: 2rem;
+            grid-column: 1 / -1;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Stile del menu mobile ottimizzato */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px; /* altezza dell'header */
+                right: -100%;
+                width: 250px;
+                height: calc(100% - 80px);
+                background: white;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 9999;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Responsive Design Migliorato */
+        @media (max-width: 992px) {
+            .content {
+                padding: 2rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            .logo-container img {
+                height: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .main-content {
+                padding: 0 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-bar {
+                flex-direction: row;
+                margin-bottom: 1.5rem;
+            }
+            
+            .search-bar input {
+                font-size: 16px;
+                padding: 0.8rem 1rem;
+            }
+            
+            .search-bar button {
+                padding: 0 1.5rem;
+                min-width: 50px;
+            }
+            
+            .filter-tabs {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1.5rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .filter-tab {
+                white-space: nowrap;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                min-height: 44px;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .news-card {
+                margin-bottom: 0;
+            }
+            
+            .news-image {
+                height: 180px;
+            }
+            
+            .news-content {
+                padding: 1.2rem;
+            }
+            
+            .news-title {
+                font-size: 1.2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 0 1rem;
+            }
+            
+            .breadcrumb {
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+                margin-bottom: 1.5rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+                border-radius: 10px;
+            }
+            
+            .page-title {
+                font-size: 1.6rem;
+            }
+            
+            .news-category {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.7rem;
+            }
+            
+            .news-title {
+                font-size: 1.1rem;
+            }
+            
+            .news-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .read-more {
+                margin-top: 0.5rem;
+            }
+            
+            .pagination-button {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.2rem;
+            }
+            
+            /* Rendere la ricerca più facilmente utilizzabile su schermi piccoli */
+            .search-bar {
+                border-radius: 8px;
+            }
+            
+            .search-bar input {
+                padding: 0.8rem;
+            }
+            
+            .search-bar button {
+                padding: 0 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo aggiornato.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="drive.html">Drive</a>
+            <a href="pomodoro.html">Pomodoro Timer</a>
+            <a href="notizie.html" class="active">Notizie</a>
+            <a href="community.html">Community ed Eventi</a>
+            <a href="avvisi.html">Avvisi</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <span>/</span>
+            <a href="notizie.html">Notizie Universitarie</a>
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <h1 class="page-title">Notizie UniPa</h1>
+                <p class="page-description">Le ultime news ufficiali dall'Università degli Studi di Palermo</p>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Cerca notizie..." id="searchInput">
+                    <button type="submit" aria-label="Cerca"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all">Tutte</button>
+                    <button class="filter-tab" data-category="rettorato">Rettorato</button>
+                    <button class="filter-tab" data-category="didattica">Didattica</button>
+                    <button class="filter-tab" data-category="bandi">Bandi</button>
+                </div>
+                
+                <!-- Contenitore per le news caricate dinamicamente -->
+                <div class="news-grid" id="newsGrid">
+                    <div class="news-loader">
+                        <i class="fas fa-spinner fa-spin"></i> Caricamento notizie in corso...
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-button" id="loadMoreBtn">Carica più notizie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UNIPERCENTO</h3>
+                <p>La piattaforma di riferimento per gli studenti dell'Università di Palermo, creata da studenti per studenti.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Unixcento/" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/unixcento" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://chat.whatsapp.com/DoBNdv9KDsN6cx2rVSUO3K" class="social-link" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Link utili</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Servizi</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Domande frequenti</a></li>                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="termini.html"><i class="fas fa-chevron-right"></i> Termini di Servizio</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi Universitari</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Risorse</h3>
+                <ul class="footer-links">
+                    <li><a href="drive.html"><i class="fas fa-chevron-right"></i> Drive condiviso</a></li>
+                    <li><a href="eventi.html"><i class="fas fa-chevron-right"></i> Eventi</a></li>
+                    <li><a href="notizie.html"><i class="fas fa-chevron-right"></i> Notizie</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi</a></li>
+                    <li><a href="pomodoro.html"><i class="fas fa-chevron-right"></i> Pomodorino Timer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:uniperento@gmail.com">
+                            <i class="fas fa-envelope"></i> uniperento@gmail.com
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://maps.google.com/?q=Viale+delle+Scienze,+Palermo">
+                            <i class="fas fa-map-marker-alt"></i> Viale delle Scienze 8, Palermo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNIPERCENTO. Tutti i diritti riservati. Sviluppato con <i class="fas fa-heart" style="color: var(--warning);"></i> dagli studenti per gli studenti.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle - Implementazione migliorata
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    // Cambia icona in base allo stato del menu
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (navLinks.classList.contains('active')) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                            this.setAttribute('aria-label', 'Chiudi menu');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                            this.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+                
+                // Chiude il menu quando si clicca fuori
+                document.addEventListener('click', function(event) {
+                    if (navLinks.classList.contains('active') && 
+                        !event.target.closest('.nav-links') && 
+                        !event.target.closest('.mobile-menu-btn')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+            }
+            
+            // Variabili per la gestione delle news
+            let currentPage = 1;
+            const newsPerPage = 8;
+            let allNews = [];
+            let displayedNews = 0;
+
+            // Funzione per classificare le news in categorie
+            function classifyNews(title, description) {
+                const lowerTitle = title.toLowerCase();
+                const lowerDesc = description.toLowerCase();
+                
+                if (lowerTitle.includes('bando') || lowerDesc.includes('bando') || 
+                    lowerTitle.includes('avviso') || lowerDesc.includes('avviso')) {
+                    return 'bandi';
+                } else if (lowerTitle.includes('didattica') || lowerDesc.includes('didattica') ||
+                           lowerTitle.includes('esami') || lowerDesc.includes('esami') ||
+                           lowerTitle.includes('laurea') || lowerDesc.includes('laurea')) {
+                    return 'didattica';
+                } else if (lowerTitle.includes('rettorato') || lowerDesc.includes('rettorato') ||
+                           lowerTitle.includes('rettore') || lowerDesc.includes('rettore')) {
+                    return 'rettorato';
+                }
+                return 'other';
+            }
+
+            // Funzione per formattare la data
+            function formatDate(dateString) {
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                return new Date(dateString).toLocaleDateString('it-IT', options);
+            }
+
+            // Funzione per estrarre la prima immagine dal contenuto
+            function extractFirstImage(content) {
+                const imgRegex = /<img[^>]+src="([^">]+)"/;
+                const match = content.match(imgRegex);
+                return match ? match[1] : 'https://www.unipa.it/portale/images/logo_unipa.png';
+            }
+
+            // Funzione per pulire il testo HTML
+            function cleanText(html) {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                return div.textContent || div.innerText || '';
+            }
+
+            // Funzione per ottenere le news dal feed RSS
+            async function fetchNews() {
+                try {
+                    const rssUrl = 'https://www.unipa.it/.content/liste/listeFeed.rss?collector=articoliByDateDesc&params=resource%3d%2famministrazione%2frettorato%2fstf04%2f.content%2fa-%25(number).html%2c%2fredazioneweb%2fa-%25(number).html%7cresourceType%3darticolo%7ccategoryTypes%3dnotizia%2fhome_page%2fnews%2f%7csubTree%3dtrue%7csortBy%3ddate%7csortAsc%3dfalse%7ccount%3d8&siteUri=%2f';
+                    const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+                    
+                    // Mostra messaggio di caricamento
+                    const newsGrid = document.getElementById('newsGrid');
+                    newsGrid.innerHTML = '<div class="news-loader"><i class="fas fa-spinner fa-spin"></i> Caricamento notizie in corso...</div>';
+                    
+                    const response = await fetch(proxyUrl);
+                    const data = await response.json();
+                    
+                    if (data.status === 'ok') {
+                        return data.items.map(item => {
+                            return {
+                                title: item.title,
+                                description: cleanText(item.description).substring(0, 200) + '...',
+                                content: item.content,
+                                date: formatDate(item.pubDate),
+                                link: item.link,
+                                image: extractFirstImage(item.content),
+                                category: classifyNews(item.title, item.description)
+                            };
+                        });
+                    }
+                    return [];
+                } catch (error) {
+                    console.error('Errore nel caricamento delle news:', error);
+                    
+                    // Mostra messaggio di errore
+                    const newsGrid = document.getElementById('newsGrid');
+                    newsGrid.innerHTML = '<div class="no-news">Errore nel caricamento delle notizie. Riprova più tardi.</div>';
+                    
+                    return [];
+                }
+            }
+
+            // Funzione per visualizzare le news
+            function displayNews(newsToShow) {
+                const newsGrid = document.getElementById('newsGrid');
+                
+                if (newsToShow.length === 0) {
+                    newsGrid.innerHTML = '<p class="no-news">Nessuna notizia disponibile al momento.</p>';
+                    return;
+                }
+                
+                // Rimuovi il loader se presente
+                const loader = document.querySelector('.news-loader');
+                if (loader) loader.remove();
+                
+                // Crea una stringa HTML per tutte le news
+                let newsHTML = '';
+                
+                newsToShow.forEach(news => {
+                    newsHTML += `
+                        <div class="news-card" data-category="${news.category}">
+                            <img src="${news.image}" alt="${news.title}" class="news-image" onerror="this.src='https://www.unipa.it/portale/images/logo_unipa.png'" loading="lazy">
+                            <div class="news-content">
+                                <span class="news-category ${news.category}">${news.category.charAt(0).toUpperCase() + news.category.slice(1)}</span>
+                                <h3 class="news-title">${news.title}</h3>
+                                <p class="news-excerpt">${news.description}</p>
+                                <div class="news-meta">
+                                    <div class="date"><i class="far fa-calendar-alt"></i> ${news.date}</div>
+                                    <a href="#" class="read-more" data-link="${news.link}">Leggi di più <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Aggiorna il contenuto della griglia
+                newsGrid.innerHTML = newsHTML;
+                
+                // Aggiungi gestori eventi per i link "Leggi di più"
+                document.querySelectorAll('.read-more').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const newsUrl = this.getAttribute('data-link');
+                        window.open(newsUrl, '_blank');
+                    });
+                });
+            }
+
+            // Funzione per filtrare le news
+            function filterNews(category) {
+                const newsToShow = category === 'all' 
+                    ? allNews.slice(0, displayedNews) 
+                    : allNews.filter(news => news.category === category).slice(0, displayedNews);
+                
+                document.getElementById('newsGrid').innerHTML = '';
+                displayNews(newsToShow);
+                
+                // Aggiorna lo stato visivo dei filtri
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    if (tab.getAttribute('data-category') === category) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+            }
+
+            // Carica le news iniziali
+            async function loadInitialNews() {
+                allNews = await fetchNews();
+                displayedNews = newsPerPage;
+                
+                if (allNews.length > 0) {
+                    displayNews(allNews.slice(0, displayedNews));
+                    
+                    // Nascondi il pulsante "Carica più notizie" se non ci sono altre notizie
+                    if (displayedNews >= allNews.length) {
+                        document.getElementById('loadMoreBtn').style.display = 'none';
+                    }
+                }
+                
+                // Aggiungi gestori eventi per i filtri
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const category = this.getAttribute('data-category');
+                        filterNews(category);
+                    });
+                });
+                
+                // Aggiungi gestore evento per il pulsante "Carica più notizie"
+                document.getElementById('loadMoreBtn').addEventListener('click', function() {
+                    displayedNews += newsPerPage;
+                    const activeCategory = document.querySelector('.filter-tab.active').getAttribute('data-category');
+                    filterNews(activeCategory);
+                    
+                    // Nascondi il pulsante se non ci sono altre notizie
+                    if (displayedNews >= allNews.length) {
+                        this.style.display = 'none';
+                    }
+                });
+                
+                // Aggiungi gestore evento per la ricerca
+                document.getElementById('searchInput').addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const activeCategory = document.querySelector('.filter-tab.active').getAttribute('data-category');
+                    
+                    const filteredNews = allNews.filter(news => {
+                        const matchesCategory = activeCategory === 'all' || news.category === activeCategory;
+                        const matchesSearch = news.title.toLowerCase().includes(searchTerm) || 
+                                          news.description.toLowerCase().includes(searchTerm);
+                        return matchesCategory && matchesSearch;
+                    }).slice(0, displayedNews);
+                    
+                    document.getElementById('newsGrid').innerHTML = '';
+                    displayNews(filteredNews);
+                    
+                    // Mostra/nascondi il pulsante "Carica più notizie" in base ai risultati
+                    const loadMoreBtn = document.getElementById('loadMoreBtn');
+                    if (filteredNews.length < displayedNews || displayedNews >= allNews.length) {
+                        loadMoreBtn.style.display = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'block';
+                    }
+                });
+            }
+
+            // Avvia il caricamento delle news
+            loadInitialNews();
+            
+            // Gestione dell'accessibilità per il campo di ricerca
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.querySelector('.search-bar button');
+            
+            searchButton.addEventListener('click', function() {
+                searchInput.focus();
+            });
+        });
+    </script>
+</body>
+</html>

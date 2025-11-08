@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informativa sulla privacy e policy d'uso della community UNIPERCENTO">
+    <title>Privacy Policy | UNIPERCENTO</title>
+    <style>
+        /* Stili identici alla tua homepage */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            transition: var(--transition);
+        }
+
+        .logo-container a:hover h1 {
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Privacy Content */
+        .privacy-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(63, 55, 201, 0.9) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .privacy-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .privacy-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .privacy-section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .privacy-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .privacy-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .privacy-section h3 {
+            color: var(--secondary);
+            margin: 1.8rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .privacy-section p, 
+        .privacy-section ul {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+        }
+
+        .privacy-section ul {
+            padding-left: 2rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: rgba(67, 97, 238, 0.1);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .update-date {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: right;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Stile del menu mobile ottimizzato */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px; /* altezza dell'header */
+                right: -100%;
+                width: 250px;
+                height: calc(100% - 80px);
+                background: white;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 9999;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        /* Responsive Design Migliorato */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            .logo-container img {
+                height: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .privacy-hero {
+                padding: 3rem 1.5rem;
+            }
+            
+            .privacy-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-hero p {
+                font-size: 1rem;
+            }
+            
+            .privacy-container {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+            
+            .privacy-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                border-radius: 10px;
+            }
+            
+            .privacy-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.3rem;
+                margin: 1.5rem 0 0.8rem;
+            }
+            
+            .highlight {
+                padding: 1.2rem;
+                margin: 1.2rem 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .privacy-container {
+                padding: 0 1rem;
+            }
+            
+            .privacy-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .privacy-hero p {
+                font-size: 0.95rem;
+            }
+            
+            .privacy-section {
+                padding: 1.2rem;
+            }
+            
+            .privacy-section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .footer-col {
+                padding: 0 0.5rem;
+            }
+            
+            .highlight {
+                padding: 1rem;
+                border-left-width: 3px;
+            }
+            
+            .privacy-section ul {
+                padding-left: 1.5rem;
+            }
+            
+            .update-date {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo aggiornato.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="drive.html">Drive</a>
+            <a href="pomodoro.html">Pomodoro Timer</a>
+            <a href="notizie.html">Notizie</a>
+            <a href="community.html">Community ed Eventi</a>
+            <a href="avvisi.html">Avvisi</a>
+            <a href="policy.html" class="active">Privacy Policy</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Privacy Hero -->
+    <section class="privacy-hero">
+        <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+        <p>Come proteggiamo e gestiamo i tuoi dati nella community UNIPERCENTO</p>
+    </section>
+
+    <!-- Privacy Content -->
+    <div class="privacy-container">
+        <div class="privacy-section">
+            <h2>Informativa sulla Privacy</h2>
+            <p>Questa informativa descrive come UNIPERCENTO raccoglie, utilizza e protegge le informazioni personali degli utenti della nostra community universitaria.</p>
+            
+            <div class="highlight">
+                <p><strong>In breve:</strong> Rispettiamo la tua privacy e ci impegniamo a proteggere i tuoi dati personali. Utilizziamo le informazioni solo per migliorare la tua esperienza nella nostra community e non le condividiamo con terze parti senza il tuo consenso esplicito.</p>
+            </div>
+            
+            <h3>1. Dati che raccogliamo</h3>
+            <p>Possiamo raccogliere e trattare le seguenti categorie di dati:</p>
+            <ul>
+                <li><strong>Dati di navigazione:</strong> Informazioni relative all'utilizzo del sito, università, corso di laurea consultato</li>
+                <li><strong>Dati di utilizzo:</strong> Come interagisci con la piattaforma, pagine visitate, risorse consultate</li>
+                <li><strong>Contenuti generati:</strong> Appunti condivisi, post nei forum, messaggi nella community</li>
+                <li><strong>Dati tecnici:</strong> Indirizzo IP, tipo di browser, dispositivo utilizzato</li>
+            </ul>
+            
+            <h3>2. Come utilizziamo i tuoi dati</h3>
+            <p>I tuoi dati vengono utilizzati per:</p>
+            <ul>
+                <li>Fornirti accesso alla community e alle sue funzionalità</li>
+                <li>Personalizzare la tua esperienza in base alle tue preferenze</li>
+                <li>Migliorare continuamente la piattaforma</li>
+                <li>Inviarti comunicazioni rilevanti (solo con il tuo consenso)</li>
+                <li>Prevenire abusi e garantire la sicurezza della community</li>
+            </ul>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Cookie e Tecnologie Simili</h2>
+            <p>Utilizziamo cookie e tecnologie simili per:</p>
+            <ul>
+                <li>Memorizzare le tue preferenze</li>
+                <li>Analizzare l'utilizzo della piattaforma</li>
+                <li>Garantire il corretto funzionamento tecnico</li>
+            </ul>
+            
+            <p>Puoi gestire le preferenze sui cookie attraverso le impostazioni del tuo browser. Disabilitare alcuni cookie potrebbe limitare alcune funzionalità del sito.</p>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Condivisione dei Dati</h2>
+            <p>I tuoi dati personali non vengono venduti o affittati a terze parti. Potremmo condividere informazioni in questi casi:</p>
+            <ul>
+                <li>Con altri membri della community per le funzionalità collaborative (es: gruppi di studio)</li>
+                <li>Con fornitori di servizi che ci assistono nell'operatività (con adeguati accordi di riservatezza)</li>
+                <li>Quando richiesto dalla legge o per proteggere i nostri diritti</li>
+            </ul>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>I Tuoi Diritti</h2>
+            <p>In conformità al GDPR, hai diritto a:</p>
+            <ul>
+                <li>Accedere ai tuoi dati personali</li>
+                <li>Richiedere la correzione di dati inesatti</li>
+                <li>Richiedere la cancellazione dei tuoi dati</li>
+                <li>Limitare o opporti al trattamento dei dati</li>
+                <li>Richiedere la portabilità dei dati</li>
+                <li>Revocare il consenso in qualsiasi momento</li>
+            </ul>
+            
+            <p>Per esercitare questi diritti, contattaci all'indirizzo <a href="mailto:unipercento@gmail.com">privacy@unipercento.it</a>.</p>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Sicurezza dei Dati</h2>
+            <p>Adottiamo misure tecniche e organizzative adeguate per proteggere i tuoi dati:</p>
+            <ul>
+                <li>Crittografia dei dati in transito (SSL/TLS)</li>
+                <li>Accessi protetti</li>
+                <li>Backup regolari</li>
+                <li>Formazione del personale sulla protezione dei dati</li>
+            </ul>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Modifiche alla Policy</h2>
+            <p>Questa policy potrebbe essere aggiornata periodicamente. Pubblicheremo eventuali modifiche su questa pagina con una nuova data di revisione.</p>
+            
+            <div class="update-date">
+                <p><strong>Ultimo aggiornamento:</strong> 18 maggio 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UNIPERCENTO</h3>
+                <p>La piattaforma di riferimento per gli studenti dell'Università di Palermo, creata da studenti per studenti.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Unixcento/" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/unixcento" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://chat.whatsapp.com/DoBNdv9KDsN6cx2rVSUO3K" class="social-link" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Link utili</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Servizi</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Domande frequenti</a></li>                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="termini.html"><i class="fas fa-chevron-right"></i> Termini di Servizio</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi Universitari</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Risorse</h3>
+                <ul class="footer-links">
+                    <li><a href="drive.html"><i class="fas fa-chevron-right"></i> Drive condiviso</a></li>
+                    <li><a href="eventi.html"><i class="fas fa-chevron-right"></i> Eventi</a></li>
+                    <li><a href="notizie.html"><i class="fas fa-chevron-right"></i> Notizie</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi</a></li>
+                    <li><a href="pomodoro.html"><i class="fas fa-chevron-right"></i> Pomodorino Timer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:uniperento@gmail.com">
+                            <i class="fas fa-envelope"></i> uniperento@gmail.com
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://maps.google.com/?q=Viale+delle+Scienze,+Palermo">
+                            <i class="fas fa-map-marker-alt"></i> Viale delle Scienze 8, Palermo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNIPERCENTO. Tutti i diritti riservati. Sviluppato con <i class="fas fa-heart" style="color: var(--warning);"></i> dagli studenti per gli studenti.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle - Implementazione migliorata
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    // Cambia icona in base allo stato del menu
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (navLinks.classList.contains('active')) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                            this.setAttribute('aria-label', 'Chiudi menu');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                            this.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+                
+                // Chiude il menu quando si clicca fuori
+                document.addEventListener('click', function(event) {
+                    if (navLinks.classList.contains('active') && 
+                        !event.target.closest('.nav-links') && 
+                        !event.target.closest('.mobile-menu-btn')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Chiude menu mobile dopo click
+                            if (navLinks && navLinks.classList.contains('active')) {
+                                navLinks.classList.remove('active');
+                                const menuIcon = mobileMenuBtn.querySelector('i');
+                                if (menuIcon) {
+                                    menuIcon.classList.remove('fa-times');
+                                    menuIcon.classList.add('fa-bars');
+                                }
+                                if (mobileMenuBtn) {
+                                    mobileMenuBtn.setAttribute('aria-label', 'Apri menu');
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>ßß

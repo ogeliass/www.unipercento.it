@@ -3,18 +3,1260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UNIPERCENTO - La community studentesca dell'Università di Palermo. Trova appunti, eventi, e una rete di supporto per il tuo percorso universitario.">
-    <title>Home | UNIPERCENTO - Community Universitaria Palermo</title>
+    <meta name="description" content="UNIPERCENTO: la community degli studenti dell'Università di Palermo - Appunti, Drive condiviso, Notizie ed Eventi">
+    <meta name="keywords" content="unipa, università palermo, studenti palermo, community universitaria, appunti università">
+    <meta name="author" content="UNIPERCENTO">
+    <meta name="theme-color" content="#4361ee">
+    <title>UNIPERCENTO | Community Universitaria di Palermo</title>
     
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Importazione font per sicurezza */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --font-main: 'Poppins', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-5 { margin-bottom: 3rem; }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mt-5 { margin-top: 3rem; }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            transition: var(--transition);
+        }
+
+        .logo-container a:hover h1 {
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        /* Stili per il menu Dropdown */
+        .nav-links {
+            list-style: none; /* Aggiunto per struttura a lista */
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links > li {
+            position: relative; /* Importante per il posizionamento del sottomenu */
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+            display: block; /* Aggiunto per sottomenu */
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Stili hover per i link di primo livello */
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links > li > a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            list-style: none;
+            position: absolute;
+            top: 100%; /* Posizionamento sotto il link principale */
+            left: 0;
+            background-color: white;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+            z-index: 900;
+        }
+
+        .nav-links > li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            padding: 0.8rem 1.5rem;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-dark);
+        }
+        
+        .dropdown-menu a::after { /* Rimuove la linea di hover per i link del sottomenu */
+            display: none;
+        }
+        /* Fine Stili per il menu Dropdown */
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.85) 0%, rgba(63, 55, 201, 0.85) 100%), 
+                        url('image.jpeg') center/cover no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: white;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: var(--light);
+            color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            fill: var(--light);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .about-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .about-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card:hover::before {
+            height: 10px;
+            background: var(--accent);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+
+        .read-more i {
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            background: linear-gradient(90deg, #ffffff, #e0e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Latest News Section */
+        .latest-news {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .news-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .news-image-container {
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-title {
+            color: var(--primary);
+        }
+
+        .news-excerpt {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .view-all-btn {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto 0;
+            padding: 1rem 2.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Stile menu mobile migliorato */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 80px; /* altezza header */
+                right: -100%;
+                width: 250px;
+                height: calc(100% - 80px);
+                background: white;
+                flex-direction: column;
+                gap: 0; /* Rimosso il gap tra elementi di primo livello per riutilizzare il padding */
+                padding: 2rem 0; /* Padding verticale */
+                box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 9999;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                text-align: left;
+                padding: 0.5rem 2rem; /* Aggiunto padding laterale per il mobile */
+            }
+
+            .nav-links > li > a {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+                display: block; /* Aggiunto per occupare tutta la larghezza */
+            }
+            
+            /* Gestione del dropdown nel mobile */
+            .dropdown-menu {
+                position: static; /* Non più a comparsa, ma integrato nel flusso */
+                box-shadow: none;
+                background-color: var(--light-gray);
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                padding: 0;
+                margin-top: 0.5rem;
+                display: block; /* Mostra il dropdown sempre nel mobile per semplicità, oppure si può nascondere con JS */
+            }
+            
+            .dropdown-menu li {
+                width: 100%;
+            }
+
+            .dropdown-menu li a {
+                padding: 0.6rem 2rem 0.6rem 3rem; /* Indentazione per i link del sottomenu */
+                font-size: 1rem;
+                color: var(--dark);
+            }
+            
+            .nav-links > li > a::after { /* Rimuove la linea di hover nel mobile */
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Nasconde la freccetta del dropdown nel mobile se non serve l'interazione */
+            .nav-links li.has-dropdown > a i {
+                display: none;
+            }
+        }
+        
+        /* Stile per la freccetta del dropdown e l'animazione nel desktop */
+        @media (min-width: 993px) {
+            .nav-links > li.has-dropdown > a {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .nav-links > li.has-dropdown > a i {
+                font-size: 0.7rem;
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-links > li.has-dropdown:hover > a i {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* ... (CSS rimanente) ... */
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid var(--light-gray);
+            border-bottom-color: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design migliorato */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .about-content h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .about-list li {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+
+            .logo-container img {
+                height: 50px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 6rem 1rem;
+                min-height: auto;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+                min-height: 50px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .testimonials-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-section, 
+            .features-section, 
+            .latest-news, 
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content p {
+                font-size: 1rem;
+            }
+            
+            .footer-col {
+                margin-bottom: 1.5rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+        
+        /* Per assicurare una migliore esperienza con la griglia delle feature */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Per schermi più grandi, mostra 3 colonne quando c'è spazio */
+        @media (min-width: 1000px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Per schermi medi, mostra 2 colonne */
+        @media (max-width: 999px) and (min-width: 600px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Per mobile, mostra 1 colonna */
+        @media (max-width: 599px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <div class="page-loader">
         <span class="loader"></span>
     </div>
@@ -22,7 +1264,7 @@
     <header>
         <div class="logo-container">
             <a href="index.html">
-                <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                <img src="logo aggiornato.png" alt="UNIPERCENTO Logo">
                 <div class="logo-text">
                     <h1>UNIPERCENTO</h1>
                     <p>Community Universitaria di Palermo</p>
@@ -31,17 +1273,18 @@
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
+            
             <li class="has-dropdown">
                 <a href="#">Risorse <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="drive.html">Drive Condiviso</a></li>
                     <li><a href="pomodoro.html">Pomodoro Timer</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="community.html">Community</a></li>
+                    <li><a href="community.html">Community ed Eventi</a></li>
+                    <li><a href="avvisi.html">Avvisi</a></li>
                 </ul>
             </li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="notizie.html">Notizie</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
         
@@ -50,141 +1293,423 @@
         </button>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Benvenuti in UNIPERCENTO</h1>
-                <p class="hero-subtitle">La community studentesca dell'Università di Palermo. Fatta da studenti, per gli studenti. Qui trovi appunti, eventi e supporto per il tuo percorso.</p>
-                <div class="hero-buttons">
-                    <a href="drive.html" class="btn btn-primary">Accedi al Drive <i class="fas fa-arrow-right"></i></a>
-                    <a href="community.html" class="btn btn-secondary">Unisciti alla Community</a>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>La Community degli Studenti di Palermo</h1>
+            <p class="subtitle">Connettiti, condividi risorse e cresci insieme a centinaia di studenti dell'Università di Palermo</p>
+            <div class="hero-buttons">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeh9Vzb7DXGE6TOvD1O6I9j-Vfiq8pQrVZeJgIXPcf8SP8TLQ/viewform?usp=dialog" class="btn btn-primary" id="registerBtn" target="_blank">
+                    <i class="fas fa-user-plus"></i> Unisciti ora
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Scopri di più
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="features-section container">
-            <h2 class="section-title text-center">Le nostre risorse principali</h2>
-            <div class="features-grid">
-                
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-folder-open"></i></div>
-                    <h3 class="feature-title">Drive Condiviso</h3>
-                    <p class="feature-description">Accedi a migliaia di appunti, riassunti ed esercizi caricati da altri studenti come te. Organizzato per dipartimento e corso di laurea.</p>
-                    <a href="drive.html" class="feature-link">Esplora il Drive <i class="fas fa-angle-right"></i></a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h3 class="feature-title">Eventi Formativi</h3>
-                    <p class="feature-description">Partecipa a workshop, seminari e incontri per sviluppare nuove competenze, dall'uso di software specifici all'orientamento al lavoro.</p>
-                    <a href="eventi.html" class="feature-link">Scopri gli eventi <i class="fas fa-angle-right"></i></a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3 class="feature-title">Community Attiva</h3>
-                    <p class="feature-description">Entra nei nostri gruppi Telegram e social per fare domande, scambiare opinioni, trovare compagni di studio e restare aggiornato.</p>
-                    <a href="community.html" class="feature-link">Entra nel gruppo <i class="fas fa-angle-right"></i></a>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="feature-title">Strumenti Utili</h3>
-                    <p class="feature-description">Usa i nostri tool pensati per lo studio, come il Pomodoro Timer integrato per aiutarti a gestire il tempo e la concentrazione.</p>
-                    <a href="pomodoro.html" class="feature-link">Avvia il Timer <i class="fas fa-angle-right"></i></a>
-                </div>
-
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content" data-animation="fade-in-right">
+                <h2>Chi Siamo</h2>
+                <p>UNIPERCENTO è la prima community degli studenti dell'Università di Palermo, nata nel 2008 dall'iniziativa di un gruppo di studenti con la passione per la condivisione e la collaborazione.</p>
+                <p>Il nostro obiettivo è creare un punto di riferimento per tutti gli studenti UNIPA, offrendo strumenti e risorse che rendano il percorso universitario più semplice, produttivo e ricco di connessioni significative.</p>
+                <ul class="about-list">
+                    <li>Una community inclusiva e aperta a tutti gli studenti</li>
+                    <li>Contenuti verificati e di qualità per il tuo studio</li>
+                    <li>Eventi formativi e sociali per ampliare la tua rete di contatti</li>
+                    <li>Supporto reciproco tra studenti di diversi corsi e anni</li>
+                </ul>
             </div>
-        </section>
+            <div class="about-image" data-animation="fade-in-left">
+                <img src="team.jpeg" alt="Team UNIPERCENTO" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <h2>I Nostri Servizi</h2>
+            <p>Strumenti e risorse pensati da studenti per studenti, per rendere il tuo percorso universitario più semplice ed efficiente.</p>
+        </div>
         
-        <section class="upcoming-events-section" style="background-color: var(--light-bg); padding: 4rem 0;">
-            <div class="container">
-                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                    <h2 class="section-title" style="margin: 0;">In primo piano</h2>
-                    <a href="eventi.html" class="btn btn-secondary">Vedi tutti gli eventi <i class="fas fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="events-grid data-grid active" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                    <div class="event-card data-card" data-category="workshop" data-date="2025-05-20">
-                        <img src="https://via.placeholder.com/600x400?text=Workshop+Excel" alt="Workshop Excel" class="data-card-image">
-                        <div class="data-card-content">
-                            <div class="data-card-meta">
-                                <span class="date"><i class="far fa-calendar-alt"></i> 20 Maggio 2025, 15:00</span>
-                            </div>
-                            <span class="data-card-category workshop">Workshop</span>
-                            <h3 class="event-title data-card-title">Workshop: Excel avanzato per analisi dei dati</h3>
-                            <div class="data-card-meta event-footer">
-                                <div class="spots limited"><i class="fas fa-users"></i> Solo 15 posti rimasti</div>
-                                <button class="register-btn" onclick="window.location.href='eventi.html'">Iscriviti <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card data-card" data-category="seminar" data-date="2025-05-22">
-                        <img src="https://via.placeholder.com/600x400?text=Seminario+AI" alt="Seminario AI" class="data-card-image">
-                        <div class="data-card-content">
-                            <div class="data-card-meta">
-                                <span class="date"><i class="far fa-calendar-alt"></i> 22 Maggio 2025, 10:00</span>
-                            </div>
-                            <span class="data-card-category seminar">Seminario</span>
-                            <h3 class="event-title data-card-title">Intelligenza Artificiale: opportunità e sfide</h3>
-                            <div class="data-card-meta event-footer">
-                                <div class="spots"><i class="fas fa-users"></i> Posti disponibili</div>
-                                <button class="register-btn" onclick="window.location.href='eventi.html'">Iscriviti <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column footer-about">
-                <div class="logo-container">
-                    <img src="img/logo.png" alt="UNIPERCENTO Logo">
-                    <div class="logo-text">
-                        <h3>UNIPERCENTO</h3>
-                        <p>Community Universitaria di Palermo</p>
-                    </div>
-                </div>
-                <p>La community creata dagli studenti, per gli studenti. Condividiamo appunti, organizziamo eventi e ci supportiamo a vicenda nel percorso universitario.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Unisciti al gruppo Telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="#" aria-label="Seguici su LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+        <div class="features-grid">
+            <div class="feature-card" data-animation="fade-in">
+                <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Drive Condiviso</h3>
+                <p>Accedi a centinaia di appunti, dispense e materiali didattici organizzati per corso di laurea e materia. Scarica, studia e contribuisci alla crescita della collezione.</p>
+                <a href="drive.html" class="read-more">Esplora il Drive <i class="fas fa-arrow-right"></i></a>
             </div>
             
-            <div class="footer-column footer-links">
-                <h3>Link Rapidi</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="drive.html">Drive Condiviso</a></li>
-                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contatti.html">Contatti</a></li>
+            <div class="feature-card" data-animation="fade-in" data-delay="200">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>Pomodorino Timer</h3>
+                <p>Ottimizza le tue sessioni di studio con il nostro timer basato sulla tecnica del Pomodoro. Aumenta la concentrazione, riduci la procrastinazione e monitora i tuoi progressi.</p>
+                <a href="pomodoro.html" class="read-more">Prova ora <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card" data-animation="fade-in" data-delay="400">
+                <div class="feature-icon"><i class="fas fa-newspaper"></i></div>
+                <h3>Notizie Universitarie</h3>
+                <p>Rimani aggiornato su scadenze, bandi, cambiamenti didattici e opportunità per gli studenti UNIPA. Informazioni chiare e tempestive senza doverti districare tra i siti ufficiali.</p>
+                <a href="notizie.html" class="read-more">Leggi le news <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card" data-animation="fade-in" data-delay="600">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3>Community e Eventi</h3>
+                <p>Partecipa a workshop formativi, gruppi di studio e incontri sociali. Connettiti con studenti del tuo stesso corso o di altre facoltà e costruisci relazioni che dureranno oltre l'università.</p>
+                <a href="eventi.html" class="read-more">Scopri gli eventi <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card" data-animation="fade-in" data-delay="800">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Avvisi Urgenti</h3>
+                <p>Tutte le comunicazioni urgenti dell'ateneo in tempo reale: cambi d'aula, scioperi, chiusure e opportunità last minute. Ricevi notifiche personalizzate in base al tuo corso di studi.</p>
+                <a href="avvisi.html" class="read-more">Visualizza avvisi <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item" data-animation="fade-in" data-delay="100">
+                <div class="stat-number" data-count="300">300+</div>
+                <div class="stat-label">Studenti nella community</div>
+            </div>
+            <div class="stat-item" data-animation="fade-in" data-delay="300">
+                <div class="stat-number" data-count="500">500+</div>
+                <div class="stat-label">Documenti condivisi</div>
+            </div>
+            <div class="stat-item" data-animation="fade-in" data-delay="500">
+                <div class="stat-number" data-count="25">25+</div>
+                <div class="stat-label">Eventi organizzati</div>
+            </div>
+            <div class="stat-item" data-animation="fade-in" data-delay="700">
+                <div class="stat-number">H24</div>
+                <div class="stat-label">Supporto tra pari</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-news">
+        <div class="section-header">
+            <h2>Ultime Notizie</h2>
+            <p>Rimani aggiornato sulle novità dell'Università di Palermo e della nostra community.</p>
+        </div>
+        
+        <div class="news-container">
+            <div class="news-grid">
+                <article class="news-card" data-animation="fade-in">
+                    <div class="news-image-container">
+                        <img src="notizia1.jpg" alt="Calendario esami" class="news-image" loading="lazy">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 10 maggio 2025</div>
+                        <h3 class="news-title">Modifiche al calendario esami per la sessione estiva</h3>
+                        <p class="news-excerpt">L'Ateneo ha comunicato variazioni importanti al calendario degli esami per i mesi di giugno e luglio 2025...</p>
+                        <a href="notizie.html" class="read-more">Leggi di più <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card" data-animation="fade-in" data-delay="200">
+                    <div class="news-image-container">
+                        <img src="notizia2.jpg" alt="Open Day UNIPA" class="news-image" loading="lazy">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 8 maggio 2025</div>
+                        <h3 class="news-title">Open Day 2025: Scopri l'offerta formativa dell'Università di Palermo</h3>
+                        <p class="news-excerpt">Il 25 maggio si terrà l'Open Day 2025, un'opportunità per conoscere da vicino i corsi di laurea...</p>
+                        <a href="notizie.html" class="read-more">Leggi di più <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card" data-animation="fade-in" data-delay="400">
+                    <div class="news-image-container">
+                        <img src="notizia3.jpg" alt="Scadenza iscrizioni" class="news-image" loading="lazy">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date"><i class="far fa-calendar-alt"></i> 5 maggio 2025</div>
+                        <h3 class="news-title">Iscrizioni ai corsi di laurea magistrale: scadenza il 31 maggio</h3>
+                        <p class="news-excerpt">Si avvicina la scadenza per presentare la domanda di iscrizione ai corsi di laurea magistrale...</p>
+                        <a href="notizie.html" class="read-more">Leggi di più <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <a href="notizie.html" class="btn btn-primary view-all-btn">
+                <i class="fas fa-newspaper"></i> Vedi tutte le notizie
+            </a>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Scopri tutto quello che UNIPERCENTO può offrirti</h2>
+            <p>Esplora i nostri servizi e risorse per migliorare la tua esperienza universitaria</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UNIPERCENTO</h3>
+                <p>La piattaforma di riferimento per gli studenti dell'Università di Palermo, creata da studenti per studenti.</p>
+                
+                <div class="social-links">
+                <a href="https://www.facebook.com/Unixcento/" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/unixcento" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://chat.whatsapp.com/DoBNdv9KDsN6cx2rVSUO3K" class="social-link" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+            
+            <div class="footer-col">
+                <h3>Link utili</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Servizi</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Domande frequenti</a></li>                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="termini.html"><i class="fas fa-chevron-right"></i> Termini di Servizio</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi Universitari</a></li>
+
                 </ul>
             </div>
             
-            <div class="footer-column footer-contact">
+            <div class="footer-col">
+                <h3>Risorse</h3>
+                <ul class="footer-links">
+                    <li><a href="drive.html"><i class="fas fa-chevron-right"></i> Drive condiviso</a></li>
+                    <li><a href="eventi.html"><i class="fas fa-chevron-right"></i> Eventi</a></li>
+                    <li><a href="notizie.html"><i class="fas fa-chevron-right"></i> Notizie</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi</a></li>
+                    <li><a href="pomodoro.html"><i class="fas fa-chevron-right"></i> Pomodorino Timer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
                 <h3>Contatti</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Università degli Studi di Palermo, 90128 Palermo PA</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@unipercento.it">info@unipercento.it</a></p>
-                <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--light-gray);">Sito non ufficiale gestito dalla community studentesca.</p>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:uniperento@gmail.com">
+                            <i class="fas fa-envelope"></i> uniperento@gmail.com
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://maps.google.com/?q=Viale+delle+Scienze,+Palermo">
+                            <i class="fas fa-map-marker-alt"></i> Viale delle Scienze 8, Palermo
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>© 2025 UNIPERCENTO. Tutti i diritti riservati. <a href="#">Privacy Policy</a> | <a href="#">Termini di utilizzo</a></p>
+            <p>© 2025 UNIPERCENTO. Tutti i diritti riservati. Sviluppato con <i class="fas fa-heart" style="color: var(--warning);"></i> dagli studenti per gli studenti.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <div class="back-to-top" id="backToTop" aria-label="Torna in cima">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page Loader
+            window.addEventListener('load', function() {
+                const loader = document.querySelector('.page-loader');
+                if (loader) {
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                    }, 500);
+                }
+            });
+            
+            // Mobile menu toggle - Script migliorato
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    // Cambia icona in base allo stato del menu
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (navLinks.classList.contains('active')) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                            this.setAttribute('aria-label', 'Chiudi menu');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                            this.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+                
+                // Chiude il menu quando si clicca fuori
+                document.addEventListener('click', function(event) {
+                    if (navLinks.classList.contains('active') && 
+                        !event.target.closest('.nav-links') && 
+                        !event.target.closest('.mobile-menu-btn')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-label', 'Apri menu');
+                        }
+                    }
+                });
+                
+                // Gestione del dropdown nel mobile (opzionale, se si vuole fare toggle)
+                // Se si vuole il toggle (click) del sottomenu anche in mobile, aggiungere qui la logica JS.
+                // Con il CSS attuale, i sottomenu sono sempre visibili se il menu mobile è aperto.
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Chiude menu mobile dopo click
+                            if (navLinks && navLinks.classList.contains('active')) {
+                                navLinks.classList.remove('active');
+                                const menuIcon = mobileMenuBtn.querySelector('i');
+                                if (menuIcon) {
+                                    menuIcon.classList.remove('fa-times');
+                                    menuIcon.classList.add('fa-bars');
+                                }
+                                if (mobileMenuBtn) {
+                                    mobileMenuBtn.setAttribute('aria-label', 'Apri menu');
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (backToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.add('active');
+                    } else {
+                        backToTopBtn.classList.remove('active');
+                    }
+                });
+                
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('[data-animation]');
+            
+            const isInViewport = function(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+                    rect.bottom >= 0
+                );
+            };
+            
+            const handleAnimation = function() {
+                animateElements.forEach(element => {
+                    if (isInViewport(element) && !element.classList.contains('animated')) {
+                        const animationType = element.dataset.animation;
+                        const delay = element.dataset.delay || 0;
+                        
+                        setTimeout(() => {
+                            element.classList.add('animated', animationType);
+                        }, delay);
+                    }
+                });
+            };
+            
+            // Run once on initial load
+            setTimeout(handleAnimation, 100);
+            
+            // Add listener for scroll and resize
+            window.addEventListener('scroll', handleAnimation);
+            window.addEventListener('resize', handleAnimation);
+            
+            // Counter animation
+            const counterElements = document.querySelectorAll('[data-count]');
+            
+            counterElements.forEach(counter => {
+                counter.innerText = '0';
+                
+                const updateCounter = () => {
+                    const target = +counter.dataset.count;
+                    const count = +counter.innerText;
+                    const increment = target / 30; // Adjust speed
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 50);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+                
+                const counterObserver = new IntersectionObserver(
+                    (entries) => {
+                        if (entries[0].isIntersecting) {
+                            updateCounter();
+                            counterObserver.unobserve(counter);
+                        }
+                    },
+                    { threshold: 0.5 }
+                );
+                
+                counterObserver.observe(counter);
+            });
+            
+            // Image lazy loading fallback for older browsers
+            if ('loading' in HTMLImageElement.prototype) {
+                // Browser supports 'loading' attribute
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
+                });
+            } else {
+                // Fallback for browsers that don't support 'loading' attribute
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+                document.body.appendChild(script);
+                
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    img.classList.add('lazyload');
+                    img.setAttribute('data-src', img.src);
+                    img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+                });
+            }
+        });
+    </script>
+    
 </body>
 </html>

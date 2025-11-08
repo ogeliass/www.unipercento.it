@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri tutti i servizi UNIPERCENTO per studenti UNIPA: Drive condiviso, Pomodorino Timer, Avvisi Urgenti e Community">
+    <title>Servizi | UNIPERCENTO</title>
+    <style>
+        /* Stili identici alla tua privacy policy */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            transition: var(--transition);
+        }
+
+        .logo-container a:hover h1 {
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, 
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Servizi Hero */
+        .servizi-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(63, 55, 201, 0.9) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .servizi-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .servizi-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Servizi Container */
+        .servizi-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Griglia Servizi */
+        .servizi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .servizio-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servizio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .servizio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .servizio-card:hover::before {
+            background: var(--accent);
+        }
+
+        .servizio-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .servizio-card:hover .servizio-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .servizio-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .servizio-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .servizio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .servizio-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .servizio-link i {
+            transition: var(--transition);
+        }
+
+        .servizio-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Sezione Dettaglio */
+        .dettaglio-section {
+            margin: 4rem 0;
+        }
+
+        .dettaglio-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .dettaglio-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .dettaglio-content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-top: 1.5rem;
+        }
+
+        .dettaglio-content h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .dettaglio-content p, 
+        .dettaglio-content ul {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+        }
+
+        .dettaglio-content ul {
+            padding-left: 2rem;
+        }
+
+        .dettaglio-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .servizi-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .servizi-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .servizi-container {
+                padding: 0 1rem;
+            }
+            
+            .servizi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="UNIPERCENTO Logo">
+                <div class="logo-text">
+                    <h1>UNIPERCENTO</h1>
+                    <p>Community Universitaria di Palermo</p>
+                </div>
+            </a>
+        </div>
+        
+       <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="drive.html" class="active">Drive</a>
+            <a href="pomodoro.html">Pomodoro Timer</a>
+            <a href="notizie.html">Notizie</a>
+            <a href="community.html">Community ed Eventi</a>
+            <a href="avvisi.html">Avvisi</a>
+
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="servizi-hero">
+        <h1><i class="fas fa-concierge-bell"></i> I Nostri Servizi</h1>
+        <p>Tutto ciò che ti serve per il tuo percorso universitario, in un unico posto</p>
+    </section>
+
+    <!-- Servizi Container -->
+    <div class="servizi-container">
+        <!-- Introduzione -->
+        <div class="dettaglio-section">
+            <h2>Scopri cosa offriamo</h2>
+            <div class="dettaglio-content">
+                <p>UNIPERCENTO mette a disposizione degli studenti dell'Università di Palermo una serie di servizi pensati per rendere il tuo percorso universitario più semplice, produttivo e connesso. Tutto ciò di cui hai bisogno, creato da studenti per studenti.</p>
+            </div>
+        </div>
+
+        <!-- Griglia Servizi -->
+        <div class="servizi-grid">
+            <!-- Drive Condiviso -->
+            <div class="servizio-card">
+                <div class="servizio-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h3>Drive Condiviso</h3>
+                <p>Accedi a centinaia di appunti, dispense e materiali didattici organizzati per corso di laurea e materia.</p>
+                <a href="drive.html" class="servizio-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Pomodorino Timer -->
+            <div class="servizio-card">
+                <div class="servizio-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Pomodorino Timer</h3>
+                <p>Ottimizza le tue sessioni di studio con la tecnica del Pomodoro. Aumenta la concentrazione e riduci la procrastinazione.</p>
+                <a href="pomodoro.html" class="servizio-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Avvisi Urgenti -->
+            <div class="servizio-card">
+                <div class="servizio-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Avvisi Urgenti</h3>
+                <p>Rimani aggiornato su cambi d'aula, scioperi e opportunità last minute dell'ateneo.</p>
+                <a href="avvisi.html" class="servizio-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Notizie Universitarie -->
+            <div class="servizio-card">
+                <div class="servizio-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h3>Notizie Universitarie</h3>
+                <p>Informazioni chiare e tempestive senza doverti districare tra i siti ufficiali.</p>
+                <a href="notizie.html" class="servizio-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Community e Eventi -->
+            <div class="servizio-card">
+                <div class="servizio-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community e Eventi</h3>
+                <p>Partecipa a workshop formativi, gruppi di studio e incontri sociali con altri studenti.</p>
+                <a href="eventi.html" class="servizio-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Dettaglio Servizi -->
+        <!-- Drive Condiviso -->
+        <div class="dettaglio-section" id="drive">
+            <h2>Drive Condiviso</h2>
+            <div class="dettaglio-content">
+                <p>La nostra libreria collaborativa contiene tutto il materiale didattico di cui hai bisogno, organizzato per facoltà, corso di laurea e materia. Una risorsa in continua crescita grazie al contributo di tutta la community.</p>
+                
+                <h3>Cosa troverai:</h3>
+                <ul>
+                    <li>Appunti completi e verificati</li>
+                    <li>Dispense dei professori</li>
+                    <li>Raccolte di esercizi svolti</li>
+                    <li>Materiale per preparare gli esami</li>
+                </ul>
+                
+                <a href="drive.html" class="cta-button">
+                    <i class="fas fa-external-link-alt"></i> Accedi al Drive
+                </a>
+            </div>
+        </div>
+        
+        <!-- Pomodorino Timer -->
+        <div class="dettaglio-section" id="pomodoro">
+            <h2>Pomodorino Timer</h2>
+            <div class="dettaglio-content">
+                <p>Il nostro timer intelligente basato sulla tecnica del Pomodoro ti aiuta a organizzare sessioni di studio efficaci, con intervalli personalizzabili e statistiche delle tue performance.</p>
+                
+                <h3>Funzionalità:</h3>
+                <ul>
+                    <li>Timer personalizzabile (25/5, 50/10 o intervalli custom)</li>
+                    <li>Statistiche delle tue sessioni di studio</li>
+                    <li>Notifiche sonore opzionali</li>
+                    <li>Modalità fullscreen per massima concentrazione</li>
+                </ul>
+                
+                <a href="pomodoro.html" class="cta-button">
+                    <i class="fas fa-play"></i> Prova ora
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UNIPERCENTO</h3>
+                <p>La piattaforma di riferimento per gli studenti dell'Università di Palermo, creata da studenti per studenti.</p>
+                
+                <div class="social-links">
+                <a href="https://www.facebook.com/Unixcento/" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/unixcento" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://chat.whatsapp.com/DoBNdv9KDsN6cx2rVSUO3K" class="social-link" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+            
+            <div class="footer-col">
+                <h3>Link utili</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Servizi</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Domande frequenti</a></li>                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="termini.html"><i class="fas fa-chevron-right"></i> Termini di Servizio</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi Universitari</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Risorse</h3>
+                <ul class="footer-links">
+                    <li><a href="drive.html"><i class="fas fa-chevron-right"></i> Drive condiviso</a></li>
+                    <li><a href="eventi.html"><i class="fas fa-chevron-right"></i> Eventi</a></li>
+                    <li><a href="notizie.html"><i class="fas fa-chevron-right"></i> Notizie</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi</a></li>
+                    <li><a href="pomodoro.html"><i class="fas fa-chevron-right"></i> Pomodorino Timer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:uniperento@gmail.com">
+                            <i class="fas fa-envelope"></i> uniperento@gmail.com
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://maps.google.com/?q=Viale+delle+Scienze,+Palermo">
+                            <i class="fas fa-map-marker-alt"></i> Viale delle Scienze 8, Palermo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNIPERCENTO. Tutti i diritti riservati. Sviluppato con <i class="fas fa-heart" style="color: var(--warning);"></i> dagli studenti per gli studenti.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

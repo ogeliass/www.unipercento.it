@@ -3,184 +3,897 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Domande Frequenti (FAQ) sulla community UNIPERCENTO. Trova risposte su chi siamo, come partecipare, il drive condiviso e gli eventi.">
-    <title>FAQ - Domande Frequenti | UNIPERCENTO</title>
-    
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    
+    <meta name="description" content="Domande frequenti sulla community UNIPERCENTO - Tutte le risposte per gli studenti">
+    <title>FAQ | UNIPERCENTO</title>
+    <style>
+        /* Stili identici alla tua homepage */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            transition: var(--transition);
+        }
+
+        .logo-container a:hover h1 {
+            color: var(--primary-dark);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* FAQ Hero */
+        .faq-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(63, 55, 201, 0.9) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .faq-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            padding-right: 3.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* FAQ Content */
+        .faq-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-section {
+            margin-bottom: 3rem;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer ul {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-promo {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-promo h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-promo p {
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-hero p {
+                font-size: 1rem;
+            }
+            
+            .faq-question {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .faq-container {
+                padding: 0 1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============ INIZIO MIGLIORAMENTI MOBILE ============ */
+        /* Miglioramenti generali per mobile */
+        @media (max-width: 768px) {
+            /* Menu mobile migliorato */
+            .nav-links.mobile-visible {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .nav-links a {
+                padding: 0.8rem 1rem;
+                width: 100%;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            
+            /* Bottoni più grandi per mobile (target touch) */
+            .btn, button, .register-btn, .pagination-button,
+            .filter-dropdown-button, .toggle-view-button {
+                padding: 0.8rem 1.5rem;
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Miglioramento della leggibilità */
+            p, li, .event-description, .event-row-description {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            /* Spaziatura adattata per mobile */
+            .container, .content {
+                padding: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+            
+            /* Miglioramento pulsanti modali per mobile */
+            .modal-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .modal-actions button {
+                width: 100%;
+            }
+            
+            /* Miglioramento input e form per mobile */
+            input, select, textarea {
+                font-size: 16px !important; /* Previene lo zoom automatico su iOS */
+            }
+            
+            /* Miglioramento per le griglie */
+            .avvisi-grid, .events-grid, .file-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Miglioramento per le schede */
+            .avviso-card, .event-card, .file-card {
+                max-width: 100%;
+            }
+            
+            /* Miglioramento per i filtri */
+            .filter-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 1rem;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+            
+            .filter-tab {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+            
+            /* Hero section più compatta su mobile */
+            .faq-hero {
+                padding: 3rem 1rem;
+            }
+            
+            .faq-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-hero p {
+                font-size: 1rem;
+            }
+            
+            /* FAQ migliorata per mobile */
+            .faq-container {
+                margin: 2rem auto;
+            }
+            
+            .faq-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .faq-question {
+                padding: 1rem;
+                min-height: 50px;
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .faq-question::after {
+                font-size: 0.9rem;
+                margin-left: 0.5rem;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 1rem 1rem;
+            }
+            
+            .contact-promo {
+                padding: 1.5rem;
+            }
+            
+            .contact-promo h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Dimensione più piccola per schermi molto piccoli */
+        @media (max-width: 375px) {
+            .logo-container img {
+                height: 40px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Fix per elementi specifici come header su tutti i dispositivi */
+        header {
+            flex-wrap: wrap;
+        }
+
+        /* Miglioramento per il tocco delle Accordion FAQ */
+        .faq-question {
+            min-height: 44px;
+        }
+
+        /* Stile per il pulsante back-to-top */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        #back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        /* ============ FINE MIGLIORAMENTI MOBILE ============ */
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-    <div class="page-loader">
-        <span class="loader"></span>
-    </div>
-
+    <!-- Header -->
     <header>
         <div class="logo-container">
             <a href="index.html">
-                <img src="img/logo.png" alt="UNIPERCENTO Logo">
+                <img src="logo aggiornato.png" alt="UNIPERCENTO Logo">
                 <div class="logo-text">
                     <h1>UNIPERCENTO</h1>
                     <p>Community Universitaria di Palermo</p>
                 </div>
             </a>
         </div>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li class="has-dropdown">
-                <a href="#">Risorse <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="drive.html">Drive Condiviso</a></li>
-                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="avvisi.html">Avvisi</a></li>
-                </ul>
-            </li>
-            <li><a href="notizie.html">Notizie</a></li>
-            <li><a href="faq.html" class="active">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-        </ul>
         
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+     <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="drive.html" class="active">Drive</a>
+            <a href="notizie.html">Notizie</a>
+            <a href="community.html">Community ed Eventi</a>
+            <a href="avvisi.html">Avvisi</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
     </header>
 
-    <main class="main-content">
-        
-        <div class="breadcrumb">
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <span>/</span>
-            <a href="faq.html">FAQ</a>
-        </div>
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <h1><i class="fas fa-question-circle"></i> Domande Frequenti</h1>
+        <p>Tutte le risposte alle domande più comuni sulla community UNIPERCENTO</p>
+    </section>
 
-        <div class="container">
-            <div class="content">
-                <h1 class="page-title">Domande Frequenti (FAQ)</h1>
-                <p class="page-description">Trova qui le risposte alle domande più comuni sulla nostra community, le risorse e le attività che organizziamo. Se non trovi quello che cerchi, <a href="contatti.html">contattaci</a>!</p>
-                
-                <div class="faq-container">
-                    
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Cos'è UNIPERCENTO?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>UNIPERCENTO è una community studentesca dell'Università di Palermo. Siamo un gruppo di studenti che collabora per creare un ambiente universitario più connesso e solidale. Condividiamo appunti, organizziamo eventi formativi e sociali, e offriamo supporto reciproco.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Chi può partecipare alla community?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>La community è aperta a tutti gli studenti, ex studenti e futuri studenti dell'Università di Palermo (UNIPA), indipendentemente dal corso di laurea. L'obiettivo è creare una rete trasversale tra tutti i dipartimenti.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Come posso contribuire al Drive Condiviso?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Il Drive Condiviso è una risorsa collaborativa. Per contribuire, puoi unirti ai nostri <a href="community.html">gruppi social</a> (come Telegram) dove troverai i link e le istruzioni per caricare i tuoi appunti, riassunti o esercizi. Assicurati di seguire le linee guida per l'organizzazione dei file!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Gli eventi sono gratuiti?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Sì, la stragrande maggioranza dei nostri eventi, in particolare workshop e seminari formativi, è completamente gratuita per gli studenti. Eventuali costi (ad esempio per aperitivi o attività sociali specifiche) saranno sempre indicati chiaramente nella pagina dell'evento.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Come posso proporre un evento o un workshop?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Siamo sempre aperti a nuove idee! Se hai una competenza che vuoi condividere o un argomento che vorresti approfondire, <a href="contatti.html">contattaci</a>. Puoi inviarci una mail con la tua proposta o scriverci sui nostri canali social.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Questo è un sito ufficiale dell'Università di Palermo?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>No, UNIPERCENTO è una community indipendente e non ufficiale, gestita interamente da studenti per gli studenti. Collaboriamo con docenti e con l'Ateneo quando possibile, ma rimaniamo un'entità separata.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column footer-about">
-                <div class="logo-container">
-                    <img src="img/logo.png" alt="UNIPERCENTO Logo">
-                    <div class="logo-text">
-                        <h3>UNIPERCENTO</h3>
-                        <p>Community Universitaria di Palermo</p>
-                    </div>
-                </div>
-                <p>La community creata dagli studenti, per gli studenti. Condividiamo appunti, organizziamo eventi e ci supportiamo a vicenda nel percorso universitario.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Seguici su Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Seguici su Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Unisciti al gruppo Telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="#" aria-label="Seguici su LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <!-- FAQ Content -->
+    <div class="faq-container">
+        <div class="faq-section">
+            <h2><i class="fas fa-users"></i> Community e Gruppi</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Come posso unirmi a un gruppo del mio corso?</div>
+                <div class="faq-answer">
+                    <p>I gruppi sono organizzati in base ai corsi di laurea. Puoi:</p>
+                    <ul>
+                        <li>Accedere alla sezione "Community" dal menu principale</li>
+                        <li>Scegliere il tuo corso dall'elenco</li>
+                        <li>Partecipare alle discussioni esistenti o crearne di nuove</li>
+                    </ul>
+                    <p>Se non trovi il tuo gruppo, contattaci e lo creeremo per te e i tuoi colleghi.</p>
                 </div>
             </div>
             
-            <div class="footer-column footer-links">
-                <h3>Link Rapidi</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="drive.html">Drive Condiviso</a></li>
-                    <li><a href="pomodoro.html">Pomodoro Timer</a></li>
-                    <li><a href="eventi.html">Eventi</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="avvisi.html">Avvisi</a></li>
-                    <li><a href="notizie.html">Notizie</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contatti.html">Contatti</a></li>
+            <div class="faq-item">
+                <div class="faq-question">Posso creare un nuovo gruppo?</div>
+                <div class="faq-answer">
+                    <p>Sì, puoi richiedere la creazione di un nuovo gruppo per:</p>
+                    <ul>
+                        <li>Gruppi di studio specifici</li>
+                        <li>Progetti interdisciplinari</li>
+                        <li>Associazioni studentesche riconosciute</li>
+                        <li>Eventi speciali</li>
+                    </ul>
+                    <p>Invia la tua richiesta a <a href="mailto:unipercento@gmail.com">community@unipercento.it</a> specificando il nome del gruppo, la descrizione e almeno 5 membri interessati.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2><i class="fas fa-book"></i> Risorse e Materiali</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Come posso condividere i miei appunti?</div>
+                <div class="faq-answer">
+                    <p>Per condividere appunti o materiali didattici:</p>
+                    <ol>
+                        <li>Accedi alla sezione "Risorse"</li>
+                        <li>Scegli il corso e l'insegnamento di riferimento</li>
+                        <li>Clicca su "Carica nuovo materiale"</li>
+                        <li>Seleziona il file dal tuo dispositivo (formati accettati: PDF, DOCX, PPTX)</li>
+                        <li>Aggiungi una descrizione e i tag rilevanti</li>
+                        <li>Condividi!</li>
+                    </ol>
+                    <p>Tutti i materiali vengono moderati prima della pubblicazione.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Cosa succede se trovo materiale non appropriato?</div>
+                <div class="faq-answer">
+                    <p>Se trovi materiale che:</p>
+                    <ul>
+                        <li>Viola il copyright</li>
+                        <li>È offensivo o inappropriato</li>
+                        <li>Contiene informazioni errate</li>
+                    </ul>
+                    <p>Puoi segnalarlo cliccando sul pulsante "Segnala" accanto al materiale o scrivendo a <a href="mailto:unipercento@gmail.com">moderazione@unipercento.it</a>.</p>
+                    <p>Il nostro team di moderatori valuterà ogni segnalazione entro 24 ore.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-promo">
+            <h3>Non hai trovato la risposta che cercavi?</h3>
+            <p>Il nostro team di supporto è pronto ad aiutarti con qualsiasi domanda o problema tu possa avere riguardo alla community UNIPERCENTO.</p>
+            <a href="contatti.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contattaci</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>UNIPERCENTO</h3>
+                <p>La piattaforma di riferimento per gli studenti dell'Università di Palermo, creata da studenti per studenti.</p>
+                
+                <div class="social-links">
+                <a href="https://www.facebook.com/Unixcento/" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/unixcento" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://chat.whatsapp.com/DoBNdv9KDsN6cx2rVSUO3K" class="social-link" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+            
+            <div class="footer-col">
+                <h3>Link utili</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Servizi</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Domande frequenti</a></li>                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="termini.html"><i class="fas fa-chevron-right"></i> Termini di Servizio</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi Universitari</a></li>
+
                 </ul>
             </div>
             
-            <div class="footer-column footer-contact">
+            <div class="footer-col">
+                <h3>Risorse</h3>
+                <ul class="footer-links">
+                    <li><a href="drive.html"><i class="fas fa-chevron-right"></i> Drive condiviso</a></li>
+                    <li><a href="eventi.html"><i class="fas fa-chevron-right"></i> Eventi</a></li>
+                    <li><a href="notizie.html"><i class="fas fa-chevron-right"></i> Notizie</a></li>
+                    <li><a href="avvisi.html"><i class="fas fa-chevron-right"></i> Avvisi</a></li>
+                    <li><a href="pomodoro.html"><i class="fas fa-chevron-right"></i> Pomodorino Timer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
                 <h3>Contatti</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Università degli Studi di Palermo, 90128 Palermo PA</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@unipercento.it">info@unipercento.it</a></p>
-                <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--light-gray);">Sito non ufficiale gestito dalla community studentesca.</p>
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:uniperento@gmail.com">
+                            <i class="fas fa-envelope"></i> uniperento@gmail.com
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="https://maps.google.com/?q=Viale+delle+Scienze,+Palermo">
+                            <i class="fas fa-map-marker-alt"></i> Viale delle Scienze 8, Palermo
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>© 2025 UNIPERCENTO. Tutti i diritti riservati. <a href="#">Privacy Policy</a> | <a href="#">Termini di utilizzo</a></p>
+            <p>&copy; 2025 UNIPERCENTO. Tutti i diritti riservati. Sviluppato con <i class="fas fa-heart" style="color: var(--warning);"></i> dagli studenti per gli studenti.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/faq-accordion.js"></script> 
+    <!-- Pulsante back-to-top -->
+    <a href="#" id="back-to-top" title="Torna su"><i class="fas fa-arrow-up"></i></a>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle migliorato
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('mobile-visible');
+            });
+            
+            // Chiudi menu quando si clicca su un link o fuori dal menu
+            document.addEventListener('click', function(e) {
+                if ((!e.target.closest('#navLinks') && !e.target.closest('#mobileMenuBtn')) && 
+                    navLinks.classList.contains('mobile-visible')) {
+                    navLinks.classList.remove('mobile-visible');
+                }
+            });
+            
+            // Chiudi menu su resize se la finestra diventa grande
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('mobile-visible')) {
+                    navLinks.classList.remove('mobile-visible');
+                }
+            });
+            
+            // Smooth scroll per link interni
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== "#") {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // FAQ accordion functionality migliorata per mobile
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Chiudi tutti gli altri item
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle dell'item corrente
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Back to top button
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'block';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        });
+    </script>
 </body>
 </html>
